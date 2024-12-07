@@ -21,7 +21,7 @@ export const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
 // Ensure the element with ID "google" is available
-const googleLogin = document.getElementById("google-for");
+const googleLogin = document.getElementById("google");
 if (googleLogin) {
   googleLogin.addEventListener("click", function () {
     signInWithPopup(auth, provider)

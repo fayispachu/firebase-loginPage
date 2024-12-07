@@ -7,7 +7,7 @@ function Another() {
         <div className="flex justify-center py-24 ">
           <div className="bg-white/40 rounded w-[30%] h-[70vh] flex py-10 flex-col gap-5 items-center">
             <button
-              id="google-for"
+              id="google"
               className="bg-white w-[90%] rounded-full h-10 flex justify-center gap-3  items-center"
             >
               <img src={google} className="w-7" alt="" />
