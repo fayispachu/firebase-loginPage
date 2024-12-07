@@ -1,5 +1,4 @@
 import google from "../assets/google.png";
-import facebook from "../assets/facebook.png";
 function Another() {
   return (
     <>
@@ -11,13 +10,6 @@ function Another() {
               className="bg-white w-[90%] rounded-full h-10 flex justify-center gap-3  items-center"
             >
               <img src={google} className="w-7" alt="" />
-              <h1 className="text-xl font-bold text-slate-500"> Google</h1>{" "}
-            </button>
-            <button
-              id="facebook"
-              className="bg-white w-[90%] rounded-full h-10 flex justify-center gap-3  items-center"
-            >
-              <img src={facebook} className="w-7" alt="" />
               <h1 className="text-xl font-bold text-slate-500"> Google</h1>{" "}
             </button>
           </div>
