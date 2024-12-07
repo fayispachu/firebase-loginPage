@@ -11,7 +11,9 @@ function Another() {
               className="bg-white w-[90%] rounded-full h-10 flex justify-center gap-3  items-center"
             >
               <img src={google} className="w-7" alt="" />
-              <h1 className="text-xl font-bold text-slate-500"> Google</h1>{" "}
+              <h1 className="text-l font-bold text-slate-500">
+                Sign in with Google
+              </h1>{" "}
             </button>
           </div>
         </div>
