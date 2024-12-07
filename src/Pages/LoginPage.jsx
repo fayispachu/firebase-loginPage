@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../FireBase";
 import { useState } from "react";
 
@@ -53,6 +53,7 @@ function LoginPage() {
             >
               Login
             </button>
+
             <Link
               to={"/register"}
               className="py-2 px-3 hover:bg-slate-400 rounded"

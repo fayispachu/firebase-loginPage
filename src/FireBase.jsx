@@ -21,25 +21,22 @@ export const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
 // Ensure the element with ID "google" is available
-const googleLogin = document.getElementById("google");
-if (googleLogin) {
+document.addEventListener("click", () => {
+  var googleLogin = document.getElementById("google-for");
+
   googleLogin.addEventListener("click", function () {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // Google Access Token
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         console.log(token);
 
-        // Signed-in user info
         const user = result.user;
         console.log(user);
 
-        // Redirect after login
         window.location.href = "../profile";
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         console.log(errorCode);
 
@@ -50,6 +47,4 @@ if (googleLogin) {
         console.log(credential);
       });
   });
-} else {
-  console.error("The Google login button was not found.");
-}
+});

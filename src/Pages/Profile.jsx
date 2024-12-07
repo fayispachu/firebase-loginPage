@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { auth } from "../FireBase";
 function Profile() {
   const [email, setEmail] = useState(true);
+  const [name, setName] = useState(true);
 
   console.log(auth.currentUser);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setEmail(user.email);
+      setName(user.displayName);
     });
   }, []);
 
@@ -21,7 +23,7 @@ function Profile() {
               alt=""
               className="w-40 h-40 rounded-full"
             />
-            <h1 className="text-teal-600 text-2xl font-bold">Name</h1>
+            <h1 className="text-teal-600 text-2xl font-bold">{name}</h1>
             <h1 className="text-teal-600 text-2xl font-bold ">{email}</h1>
           </div>
         </div>
