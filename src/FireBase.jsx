@@ -1,10 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // Your Firebase configuration
@@ -26,7 +21,7 @@ export const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
 // Ensure the element with ID "google" is available
-const googleLogin = document.getElementById("google");
+const googleLogin = document.getElementById("google-for");
 if (googleLogin) {
   googleLogin.addEventListener("click", function () {
     signInWithPopup(auth, provider)
@@ -57,42 +52,4 @@ if (googleLogin) {
   });
 } else {
   console.error("The Google login button was not found.");
-}
-
-// for facebook
-const facebook = document.getElementById("facebook");
-if (facebook) {
-  facebook.addEventListener("click", function () {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-        window.location.href = "../profile";
-
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        const credential = FacebookAuthProvider.credentialFromResult(result);
-        const accessToken = credential.accessToken;
-        console.log(accessToken);
-
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        console.log(errorCode);
-        // The email of the user's account used.
-        const email = error.customData.email;
-        console.log(email);
-
-        // The AuthCredential type that was used.
-        const credential = FacebookAuthProvider.credentialFromError(error);
-        console.log(credential);
-
-        // ...
-      });
-  });
-} else {
-  console.error("The FaceBook login button was not found.");
 }

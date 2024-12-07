@@ -53,7 +53,6 @@ function LoginPage() {
             >
               Login
             </button>
-
             <Link
               to={"/register"}
               className="py-2 px-3 hover:bg-slate-400 rounded"
