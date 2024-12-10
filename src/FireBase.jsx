@@ -34,7 +34,7 @@ document.addEventListener("click", () => {
         const user = result.user;
         console.log(user);
 
-        window.location.href = "../profile";
+        window.location.href = "/profile";
       })
       .catch((error) => {
         const errorCode = error.code;

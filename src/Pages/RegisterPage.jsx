@@ -19,7 +19,7 @@ function RegisterPage() {
         const user = userCredential.user;
 
         setDoc(doc(db, "users", "id"), {
-          name: "Los Angeles",
+          name: "name",
           state: "CA",
           country: "USA",
         });
