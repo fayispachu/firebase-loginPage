@@ -4,15 +4,17 @@ import { useState } from "react";
 import { auth } from "../FireBase";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../FireBase";
-
+import { useNavigate } from "react-router-dom";
 function RegisterPage() {
   const [name, setName] = useState("");
   const [confirm, setConfirm] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed up
@@ -25,6 +27,7 @@ function RegisterPage() {
         });
         // ...
         console.log(user, "Successfull");
+        navigate("/profile");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -59,14 +62,14 @@ function RegisterPage() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               className="p-2 rounded w-72"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Confrm Password"
               className="p-2 rounded w-72"
               required
@@ -82,13 +85,6 @@ function RegisterPage() {
               {" "}
               <Link to={"/"} className="py-2 px-3 hover:bg-slate-400 rounded">
                 Login
-              </Link>
-              <p>or</p>
-              <Link
-                to={"/already "}
-                className="py-2 px-3 hover:bg-slate-400 rounded"
-              >
-                Already heave an account
               </Link>
             </div>
           </form>

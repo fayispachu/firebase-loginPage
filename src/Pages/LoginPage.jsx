@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../FireBase";
 import { useState } from "react";
-
+import google from "../assets/google.png";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,8 +30,8 @@ function LoginPage() {
     <>
       <div className="w-full h-full bg-black">
         <div className="flex justify-center py-24 ">
-          <form className="bg-white/40 rounded w-[30%] h-[70vh] flex py-10 flex-col gap-5 items-center">
-            <h1 className="text-teal-600 text-4xl font-bold pb-16"> Welcome</h1>
+          <div className="bg-white/40 rounded w-[30%] h-[70vh] flex py-10 flex-col gap-5 items-center">
+            <h1 className="text-teal-600 text-4xl font-bold pb-7"> Welcome</h1>
 
             <input
               type="text"
@@ -41,7 +41,7 @@ function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               className="p-2 rounded w-72"
               required
@@ -53,6 +53,18 @@ function LoginPage() {
             >
               Login
             </button>
+            <span className="flex justify-center gap-3 flex-col items-center">
+              <h1>or</h1>
+              <button
+                id="google-for"
+                className="bg-white w-72 rounded-full py-4 h-10 flex justify-center gap-3  items-center"
+              >
+                <img src={google} className="w-7" alt="" />
+                <h1 className="text-l font-bold text-slate-500">
+                  Sign in with Google
+                </h1>{" "}
+              </button>{" "}
+            </span>
 
             <Link
               to={"/register"}
@@ -60,7 +72,7 @@ function LoginPage() {
             >
               Create a new account
             </Link>
-          </form>
+          </div>
         </div>
       </div>
     </>
